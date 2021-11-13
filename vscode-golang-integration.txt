@@ -1,0 +1,25 @@
+### Install GO
+#https://www.digitalocean.com/community/tutorials/how-to-install-go-on-ubuntu-20-04
+
+curl -OL https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
+sha256sum go1.17.3.linux-amd64.tar.gz | grep 550f9845451c0c94be679faf116291e7807a8d78b43149f9506c1b15eb89008c
+tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz
+cd /usr/bin
+ln -s ../local/go/bin/go* .
+
+
+### Install VSCode
+# https://code.visualstudio.com/docs/setup/linux
+
+# download 
+wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O vscode.deb
+apt install ./vscode.deb
+
+# start up code and add GO language Extension from google.com
+# when create new .go extension file
+# change to go language, install additional tools when recommend by vscode
+
+
+# install drawio use for diagram creation
+apt install ./drawio-amd64-15.7.3.deb 
+drawio 
