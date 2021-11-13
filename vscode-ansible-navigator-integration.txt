@@ -1,0 +1,31 @@
+### Install ansible-navigator and podman to use with ansible-navigator
+#https://podman.io/getting-started/installation
+#https://computingforgeeks.com/how-to-install-podman-on-ubuntu/
+
+apt update
+apt install python3.8 python3-pip
+pip3 install 'ansible-navigator[ansible-core]'
+
+. /etc/os-release
+echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+curl -L "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key" | sudo apt-key add -
+sudo apt-get update
+apt upgrade
+apt list podman
+apt install podman ssh-askpass
+
+# don't need to install ansible.
+#apt install -y software-properties-common
+#add-apt-repository --yes --update ppa:ansible/ansible
+
+### Install VSCode
+# https://code.visualstudio.com/docs/setup/linux
+
+# download 
+wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O vscode.deb
+apt install ./vscode.deb
+
+# start up code and add ansible language Extension
+# when create new yaml file, select ansible for language
+# save and right-click to run in ansible-navigator
+# a new podman container will be created to run the new ansible playbook
